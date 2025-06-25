@@ -5,9 +5,9 @@ Este projeto foi realizado como parte do curso de QA da TripleTen, com foco em t
 Testar os novos endpoints implementados pelos desenvolvedores, garantindo que atendam aos requisitos funcionais especificados na documentação da API (apiDoc). As áreas testadas envolvem o gerenciamento de kits de produtos e o serviço de entrega "Order and Go".
 
 # Ferramentas Utilizadas
-Postman para envio das requisições e análise das respostas
-Planilha para organizar e documentar o checklist de testes
-apiDoc como base técnica para análise dos requisitos da API   
+Postman para envio das requisições e análise das respostas,
+planilha para organizar e documentar o checklist de testes,
+apiDoc como base técnica para análise dos requisitos da API e   
 Jira para relatar os bugs (quando aplicável).
 
 # Resultado
