@@ -1,0 +1,849 @@
+ID,Título do caso de teste,Etapas do teste,Dados do teste (corpo da solicitação),Resultado esperado,Resultado real,Status,Link para o relatório de bug
+Requisito 1: /api/v1/kits/:id/products,,,,,,,
+1,Adicionar produtos existentes a um kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+
+
+2,Adicionar um id com um número no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+
+
+3,Adicionar um id com letras no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": ""A"",
+ ""quantity"": 2
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+
+
+4,Adicionar um id com 2 digitos no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 22,
+ ""quantity"": 2
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+
+
+5,Adicionar um id com 3 digitos no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 224,
+ ""quantity"": 2
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+
+
+6,Adicionar um id com caracteres especiais no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": ""#@$"",
+ ""quantity"": 2
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+
+
+7,Adicionar um id vazio no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": """",
+ ""quantity"": 2
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+
+
+8,Adicionar produtos a um kit inexistente,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit inexistente na URL e um ID de produto no corpo da solicitação.,"Path params: id=10
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2
+ }
+ ]
+ }",404 Not found,404 Not found,APROVADO,
+
+ 
+9,Adicionar 29 produtos no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ { ""id"": 1,  
+  ""quantity"": 2 },  
+{ ""id"": 2,  
+  ""quantity"": 2 },  
+{ ""id"": 3,  
+  ""quantity"": 2 },  
+{ ""id"": 4,  
+  ""quantity"": 2 },  
+{ ""id"": 5,  
+  ""quantity"": 2 },  
+{ ""id"": 6,  
+  ""quantity"": 2 },  
+{ ""id"": 7,  
+  ""quantity"": 2 },  
+{ ""id"": 8,  
+  ""quantity"": 2 },  
+{ ""id"": 9,  
+  ""quantity"": 2 },  
+{ ""id"": 10,  
+  ""quantity"": 2 },  
+{ ""id"": 11,  
+  ""quantity"": 2 },  
+{ ""id"": 12,  
+  ""quantity"": 2 },  
+{ ""id"": 13,  
+  ""quantity"": 2 },  
+{ ""id"": 14,  
+  ""quantity"": 2 },  
+{ ""id"": 15,  
+  ""quantity"": 2 },  
+{ ""id"": 16,  
+  ""quantity"": 2 },  
+{ ""id"": 17,  
+  ""quantity"": 2 },  
+{ ""id"": 18,  
+  ""quantity"": 2 },  
+{ ""id"": 19,  
+  ""quantity"": 2 },  
+{ ""id"": 20,  
+  ""quantity"": 2 },  
+{ ""id"": 21,  
+  ""quantity"": 2 },  
+{ ""id"": 22,  
+  ""quantity"": 2 },  
+{ ""id"": 23,  
+  ""quantity"": 2 },  
+{ ""id"": 24,  
+  ""quantity"": 2 },  
+{ ""id"": 25,  
+  ""quantity"": 2 },  
+{ ""id"": 26,  
+  ""quantity"": 2 },  
+{ ""id"": 27,  
+  ""quantity"": 2 },  
+{ ""id"": 28,  
+  ""quantity"": 2 },  
+{ ""id"": 29,  
+  ""quantity"": 2 }  
+ ]
+ }",200 OK ,404 Not found,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-1
+10,Adicionar 30 produtos no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ { ""id"": 1,  
+  ""quantity"": 2 },  
+{ ""id"": 2,  
+  ""quantity"": 2 },  
+{ ""id"": 3,  
+  ""quantity"": 2 },  
+{ ""id"": 4,  
+  ""quantity"": 2 },  
+{ ""id"": 5,  
+  ""quantity"": 2 },  
+{ ""id"": 6,  
+  ""quantity"": 2 },  
+{ ""id"": 7,  
+  ""quantity"": 2 },  
+{ ""id"": 8,  
+  ""quantity"": 2 },  
+{ ""id"": 9,  
+  ""quantity"": 2 },  
+{ ""id"": 10,  
+  ""quantity"": 2 },  
+{ ""id"": 11,  
+  ""quantity"": 2 },  
+{ ""id"": 12,  
+  ""quantity"": 2 },  
+{ ""id"": 13,  
+  ""quantity"": 2 },  
+{ ""id"": 14,  
+  ""quantity"": 2 },  
+{ ""id"": 15,  
+  ""quantity"": 2 },  
+{ ""id"": 16,  
+  ""quantity"": 2 },  
+{ ""id"": 17,  
+  ""quantity"": 2 },  
+{ ""id"": 18,  
+  ""quantity"": 2 },  
+{ ""id"": 19,  
+  ""quantity"": 2 },  
+{ ""id"": 20,  
+  ""quantity"": 2 },  
+{ ""id"": 21,  
+  ""quantity"": 2 },  
+{ ""id"": 22,  
+  ""quantity"": 2 },  
+{ ""id"": 23,  
+  ""quantity"": 2 },  
+{ ""id"": 24,  
+  ""quantity"": 2 },  
+{ ""id"": 25,  
+  ""quantity"": 2 },  
+{ ""id"": 26,  
+  ""quantity"": 2 },  
+{ ""id"": 27,  
+  ""quantity"": 2 },  
+{ ""id"": 28,  
+  ""quantity"": 2 },  
+{ ""id"": 29,  
+  ""quantity"": 2 },  
+{ ""id"": 30,  
+  ""quantity"": 2 }   
+ ]
+ }",200 OK ,404 Not found,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-21
+11,Adicionar 31 produtos no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ { ""id"": 1,  
+  ""quantity"": 2 },  
+{ ""id"": 2,  
+  ""quantity"": 2 },  
+{ ""id"": 3,  
+  ""quantity"": 2 },  
+{ ""id"": 4,  
+  ""quantity"": 2 },  
+{ ""id"": 5,  
+  ""quantity"": 2 },  
+{ ""id"": 6,  
+  ""quantity"": 2 },  
+{ ""id"": 7,  
+  ""quantity"": 2 },  
+{ ""id"": 8,  
+  ""quantity"": 2 },  
+{ ""id"": 9,  
+  ""quantity"": 2 },  
+{ ""id"": 10,  
+  ""quantity"": 2 },  
+{ ""id"": 11,  
+  ""quantity"": 2 },  
+{ ""id"": 12,  
+  ""quantity"": 2 },  
+{ ""id"": 13,  
+  ""quantity"": 2 },  
+{ ""id"": 14,  
+  ""quantity"": 2 },  
+{ ""id"": 15,  
+  ""quantity"": 2 },  
+{ ""id"": 16,  
+  ""quantity"": 2 },  
+{ ""id"": 17,  
+  ""quantity"": 2 },  
+{ ""id"": 18,  
+  ""quantity"": 2 },  
+{ ""id"": 19,  
+  ""quantity"": 2 },  
+{ ""id"": 20,  
+  ""quantity"": 2 },  
+{ ""id"": 21,  
+  ""quantity"": 2 },  
+{ ""id"": 22,  
+  ""quantity"": 2 },  
+{ ""id"": 23,  
+  ""quantity"": 2 },  
+{ ""id"": 24,  
+  ""quantity"": 2 },  
+{ ""id"": 25,  
+  ""quantity"": 2 },  
+{ ""id"": 26,  
+  ""quantity"": 2 },  
+{ ""id"": 27,  
+  ""quantity"": 2 },  
+{ ""id"": 28,  
+  ""quantity"": 2 },  
+{ ""id"": 29,  
+  ""quantity"": 2 },  
+{ ""id"": 30,  
+  ""quantity"": 2 },  
+{ ""id"": 31,  
+  ""quantity"": 2 }    
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+12,Adicionar nenhum produto no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e nenhum produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": """",
+ ""quantity"": """"
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+13,Adicionar 1 único produto no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+14,Adicionar uma quantidade com comprimento válido no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity valido do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 222
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+15,Adicionar uma quantidade com comprimento inválido no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity invalido do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+16,Adicionar uma quantidade com caracteres especiais no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": ""#@$""
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+17,Adicionar uma quantidade com número negativo no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": -2
+ }
+ ]
+ }",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-2
+18,Adicionar uma quantidade com valor zero no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 0
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+19,Adicionar uma quantidade vazia no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": """"
+ }
+ ]
+ }",200 OK ,200 OK ,APROVADO,
+20,Adicionar uma quantidade com número fracionado no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2.5
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+21,Adicionar uma quantidade com letras latinas no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": ""Aa""
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+22,Adicionar uma quantidade com letras não latinas no corpo para adicionar um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": ""ελληνικά""
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+23,Adicionar produto no kit sem enviar o parametro id ,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um quantity do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""quantity"": 2
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+24,Adicionar produto no kit sem enviar o parametro quantity ,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um id do produto no corpo da solicitação.,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+ ""id"": 1
+ }
+ ]
+ }",500 Internal Server Error,500 Internal Server Error,APROVADO,
+25,Adicionar produto no kit sem enviar nenhum dos parametros ,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e sem parametros,"Path params: id=2 
+{
+ ""productsList"": [
+ {
+
+ }
+ ]
+ }",400 Bad Request,400 Bad Request,APROVADO,
+26,"Testar ""deliveryTime"" sendo 8",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 8,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0",APROVADO,
+27,"Testar ""deliveryTime"" sendo 9",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 "," ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0",APROVADO,
+28,"Testar ""deliveryTime"" sendo 21",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 21,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+29,"Testar ""deliveryTime"" sendo 22",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 22,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+30,"Testar ""deliveryTime"" sendo 7",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 7,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": false,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}",REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-3
+31,"Testar ""deliveryTime"" sendo 23",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 23,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": false,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}",REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-4
+32,"Testar ""deliveryTime"" com um numero negativo",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": -9,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-5
+33,"Testar ""deliveryTime"" com um numero flutuante ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9.1,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-6
+34,"Testar ""deliveryTime"" com letras latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": ""a"",
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+35,"Testar ""deliveryTime"" com letras não latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": ""λ"",
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+36,"Testar ""deliveryTime"" com caracteres especiais",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": ""@"",
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+37,"Testar o parametro ""deliveryTime"" vazio",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": """",
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-7
+38,"Testar não enviar o parâmetro ""deliveryTime""",POST para /order-and-go/v1/delivery,"{
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-8
+39,"Testar ""productsCount"" sendo 1",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 1,
+    ""productsWeight"": 2
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+40,"Testar ""productsCount"" sendo 8",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 2
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+41,"Testar ""productsCount"" sendo 9",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 9,
+    ""productsWeight"": 2
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-9
+42,"Testar ""productsCount"" sendo 10",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+43,"Testar ""productsCount"" sendo 14",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 14,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+44,"Testar ""productsCount"" sendo 15",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 15,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+45,"Testar ""productsCount"" sendo 16",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 16,
+    ""productsWeight"": 5
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 9","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 5
+}",REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-10
+46,"Testar ""productsCount"" com um numero negativo",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": -3,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-11
+47,"Testar ""productsCount"" com um numero flutuante ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 5.3,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-12
+48,"Testar ""productsCount"" com letras latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": ""a"",
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+49,"Testar ""productsCount"" com letras não latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": ""λ"",
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+50,"Testar ""productsCount"" com caracteres especiais",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": ""@"",
+    ""productsWeight"": 5
+}",400 Bad Request,400 Bad Request,APROVADO,
+51,"Testar o parametro ""productsCount"" vazio",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": """",
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-13
+52,"Testar não enviar o parâmetro ""productsCount""",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsWeight"": 5
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-14
+53,"Testar ""productsWeight"" sendo 0.1",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 0.1
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+54,"Testar ""productsWeight"" sendo 2.9",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 2.9
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+55,"Testar ""productsWeight"" sendo 3",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 8,
+    ""productsWeight"": 3
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 3,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 3,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+56,"Testar ""productsWeight"" sendo 3.1",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 3.1
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+57,"Testar ""productsWeight"" sendo 5.9",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 5.9
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+58,"Testar ""productsWeight"" sendo 6",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 6
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 0 ","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",APROVADO,
+59,"Testar ""productsWeight"" sendo 6.1",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": 6.1
+}","200 OK
+""isItPossibleToDeliver"": true,
+ ""hostDeliveryCost"": 5,
+ ""clientDeliveryCost"": 9","{
+    ""name"": ""Order and Go"",
+    ""isItPossibleToDeliver"": true,
+    ""hostDeliveryCost"": 5,
+    ""toBeDeliveredTime"": {
+        ""min"": 20,
+        ""max"": 25
+    },
+    ""clientDeliveryCost"": 0
+}",REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-15
+60,"Testar ""productsWeight"" com um numero negativo",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": -2
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-16
+61,"Testar ""productsWeight"" com letras latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": ""a""
+}",400 Bad Request,400 Bad Request,APROVADO,
+62,"Testar ""productsWeight"" com letras não latinas ",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": ""λ""
+}",400 Bad Request,400 Bad Request,APROVADO,
+63,"Testar ""productsWeight"" com caracteres especiais",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": ""@""
+}",400 Bad Request,400 Bad Request,APROVADO,
+64,"Testar o parametro ""productsWeight"" vazio",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+    ""productsWeight"": """"
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-17
+65,"Testar não enviar o parâmetro ""productsWeight""",POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": 9,
+    ""productsCount"": 10,
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-18
+66,Testar os 3 parâmetros vazios,POST para /order-and-go/v1/delivery,"{
+    ""deliveryTime"": """",
+    ""productsCount"": """",
+    ""productsWeight"": """"
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-19
+67,Testar não enviar nenhum parâmetro,POST para /order-and-go/v1/delivery,"{
+    
+}",400 Bad Request,200 OK ,REPROVADO,https://bug-sprint3.atlassian.net/browse/PROJ-20
