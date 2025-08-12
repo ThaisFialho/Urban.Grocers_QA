@@ -12,7 +12,7 @@ As áreas testadas envolvem o gerenciamento de kits de produtos e o serviço de 
 
 ---
 
-📌 Funcionalidades Testadas
+## 📌 Funcionalidades Testadas
 
 - Adição de produtos com IDs e quantidades variados, incluindo casos inválidos e limites de quantidade.
 - Testes com kits inexistentes e diferentes números de produtos.
