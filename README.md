@@ -12,6 +12,15 @@ As áreas testadas envolvem o gerenciamento de kits de produtos e o serviço de 
 
 ---
 
+📌 Funcionalidades Testadas
+
+- Adição de produtos com IDs e quantidades variados, incluindo casos inválidos e limites de quantidade.
+- Testes com kits inexistentes e diferentes números de produtos.
+- Validação dos parâmetros deliveryTime, productsCount e productsWeight com valores válidos, inválidos, vazios e ausentes.
+- Testes para garantir respostas corretas em múltiplas combinações.
+
+---
+
 ## 🛠️ Ferramentas Utilizadas
 
 - Postman para envio das requisições e análise das respostas  
